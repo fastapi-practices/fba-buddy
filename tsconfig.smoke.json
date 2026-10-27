@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.smoke.tsbuildinfo",
+    "types": ["node", "vite/client"]
+  },
+  "include": ["smoke/**/*.ts", "src/vite-env.d.ts", "playwright.smoke.config.ts"]
+}

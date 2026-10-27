@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模型选择器 · 有趣的一批</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./playful.css" />
+  </head>
+  <body>
+    <div class="pv-head">
+      <a href="./index.html">← 上一批（10 个正经方案）</a>
+      <div>
+        <h1>模型选择器 · 有趣的一批</h1>
+        <p>8 个玩但能用的形态：手牌、调音台、商店、唱片、仪表、老虎机、游戏 HUD、气泡</p>
+      </div>
+    </div>
+
+    <div class="pv-tabs" id="tabs"></div>
+
+    <div class="pv-wrap">
+      <!-- P1 手牌扇形 -->
+      <section class="pscheme p1 on" data-title="手牌扇形">
+        <div class="phead">
+          <span class="no">P1</span>
+          <h2>手牌扇形 <em>Hand of Cards</em></h2>
+          <p>模型像扑克手牌一样摊开在输入框上方，抽一张就是选它，卡面自带上下文长度条</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="hand" id="hand"></div>
+          <div class="handbar">
+            <span class="tip">思考强度</span>
+            <div class="eslots" id="handSlots"></div>
+            <span class="tip" id="handEffort">高</span>
+            <span class="tip">· 抽牌即切换，拖动可以洗牌</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- P2 调音台 -->
+      <section class="pscheme p2" data-title="调音台推子">
+        <div class="phead">
+          <span class="no">P2</span>
+          <h2>调音台推子 <em>Mixer Faders</em></h2>
+          <p>每个模型是一根推子：高度=上下文长度，供应商是分组，右边是选中模型的电平表</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="mixer">
+            <div id="mixerTracks" style="display: flex; gap: 10px; align-items: flex-end"></div>
+            <div class="mvu">
+              <div>
+                <div class="vlabel"><span>上下文</span><span id="vuCtx">128k</span></div>
+                <div class="vmeter"><i id="vuCtxBar" style="width: 28%"></i></div>
+              </div>
+              <div>
+                <div class="vlabel"><span>单价</span><span id="vuPrice">$1.25 / 10M</span></div>
+                <div class="vmeter"><i id="vuPriceBar" style="width: 12%"></i></div>
+              </div>
+              <div>
+                <div class="vlabel"><span>思考档位</span><span id="vuEffort">4 / 5</span></div>
+                <div class="eslots" id="mixerSlots"></div>
+              </div>
+              <button class="btn primary" style="height: 32px; border-radius: 8px; border: 0; background: #f4f4f6; color: #101014">
+                推上主输出
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P3 模型商店 -->
+      <section class="pscheme p3" data-title="模型商店">
+        <div class="phead">
+          <span class="no">P3</span>
+          <h2>模型商店 <em>Model Shop</em></h2>
+          <p>模型挂在货架上，下面挂着纸价签；挑好了放进购物车结账才真的切换</p>
+        </div>
+        <div class="stage">
+          <div class="shop" id="shop"></div>
+          <div class="shopcart">
+            <span class="label">购物车</span>
+            <span id="cartItem" style="font-size: 13px; font-weight: 600">GPT-5</span>
+            <span class="meta">128k · $1.25/10M</span>
+            <button class="btn primary" style="height: 30px; padding: 0 14px; border-radius: 8px; border: 0; background: #f4f4f6; color: #101014">
+              结账切换
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- P4 唱片点唱机 -->
+      <section class="pscheme p4" data-title="唱片点唱机">
+        <div class="phead">
+          <span class="no">P4</span>
+          <h2>唱片点唱机 <em>Jukebox</em></h2>
+          <p>左侧是转动的黑胶，右侧是曲目（模型），旋钮是思考强度，唱针落下即开始播放</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="juke">
+            <div class="vinyl" id="vinyl">
+              <div class="vlabel solid-emerald" id="vinylLabel">GPT-5</div>
+              <svg class="vneedle" id="vneedle" viewBox="0 0 92 92">
+                <path d="M88 12 L24 60 L34 70 L78 26 Z" fill="#3a3a45" />
+                <circle cx="86" cy="12" r="6" fill="#26262e" stroke="#4a4a58" />
+                <rect x="18" y="54" width="20" height="20" rx="4" fill="#f4f4f6" />
+              </svg>
+            </div>
+            <div>
+              <div class="tracks" id="tracks"></div>
+              <div class="knobwrap">
+                <div class="knob"><i id="knobNeedle" style="transform: rotate(-120deg)"></i></div>
+                <div>
+                  <div style="font-size: 12px; color: var(--muted)">思考强度</div>
+                  <div style="font-size: 13px; font-weight: 600" id="knobLabel">高</div>
+                </div>
+                <div class="eslots" id="jukeboxSlots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P5 飞行仪表 -->
+      <section class="pscheme p5" data-title="飞行仪表">
+        <div class="phead">
+          <span class="no">P5</span>
+          <h2>飞行仪表 <em>Cockpit</em></h2>
+          <p>指针=思考强度，档位杆=供应商，显示屏=模型；像开飞机一样换模型</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="cockpit">
+            <div class="dial">
+              <div class="ticks" id="dialTicks"></div>
+              <div class="needle" id="dialNeedle" style="transform: rotate(-120deg)"></div>
+              <div class="hub"></div>
+              <div class="readout" id="dialReadout">高</div>
+              <div class="cap">思考强度</div>
+            </div>
+            <div class="gearbox" id="gearbox"></div>
+            <div class="modelstrip" id="modelstrip"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P6 老虎机 -->
+      <section class="pscheme p6" data-title="老虎机">
+        <div class="phead">
+          <span class="no">P6</span>
+          <h2>老虎机 <em>Slot Machine</em></h2>
+          <p>三列滚轮：供应商 / 模型 / 思考强度，拉一下杆随机停在组合上，适合「随便来一个」</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="slotmachine">
+            <div class="lights"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="reels">
+              <div class="reel"><div class="strip" id="reel1"></div></div>
+              <div class="reel"><div class="strip" id="reel2"></div></div>
+              <div class="reel"><div class="strip" id="reel3"></div></div>
+            </div>
+            <div class="lever">
+              <button class="leverbtn" id="lever">🎰 拉杆</button>
+              <span class="slotnote" id="slotNote">停下来就是这次要用的模型</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P7 复古 HUD -->
+      <section class="pscheme p7" data-title="复古游戏 HUD">
+        <div class="phead">
+          <span class="no">P7</span>
+          <h2>复古游戏 HUD <em>Rogue HUD</em></h2>
+          <p>把换模型当成换装备：左栏装备槽、中间状态条、右栏属性表</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="hud">
+            <div class="hudgrid">
+              <div class="hpanel">
+                <h5>Equipment · 模型</h5>
+                <div id="hudSlots"></div>
+              </div>
+              <div class="hpanel">
+                <h5>Status · 状态</h5>
+                <div style="font-size: 10px; color: #6f9b6d; margin-bottom: 4px">HP · 上下文占用</div>
+                <div class="hbar hp"><i style="width: 38%"></i></div>
+                <div style="font-size: 10px; color: #6f9b6d; margin-bottom: 4px">MP · 思考强度</div>
+                <div class="hbar"><i style="width: 72%"></i></div>
+                <div style="font-size: 10px; color: #6f9b6d; margin-bottom: 4px; margin-top: 10px">LUK · 价格</div>
+                <div class="hbar hp"><i style="width: 22%"></i></div>
+              </div>
+              <div class="hpanel">
+                <h5>Attributes · 属性</h5>
+                <div class="hattr"><span>MODEL</span><span id="hudModel">GPT-5</span></div>
+                <div class="hattr"><span>CTX</span><span>128,000</span></div>
+                <div class="hattr"><span>PRICE</span><span>$1.25/10M</span></div>
+                <div class="hattr"><span>SKILL</span><span>THINK · TOOLS</span></div>
+                <div class="hattr"><span>VENDOR</span><span>OPENAI</span></div>
+                <button class="hbtn" id="hudBtn">[ 装备此模型 ]</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P8 漂浮气泡 -->
+      <section class="pscheme p8" data-title="漂浮气泡">
+        <div class="phead">
+          <span class="no">P8</span>
+          <h2>漂浮气泡 <em>Bubble Field</em></h2>
+          <p>没有面板：模型像气泡一样漂在输入框上方，气泡越大上下文越长，点破即切换</p>
+        </div>
+        <div class="stage">
+          <div class="composer" style="bottom: 30px">
+            <div class="row">
+              <div class="ph">使用 FbaBuddy Work</div>
+              <span class="chip ghost">GPT-5</span>
+              <span class="send">↑</span>
+            </div>
+          </div>
+          <div class="bubbles" id="bubbles"></div>
+          <div class="bubblefoot">
+            <span class="tip">思考强度</span>
+            <div class="eslots" id="bubbleSlots"></div>
+            <span class="tip" id="bubbleEffort">高</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./playful.js"></script>
+  </body>
+</html>
