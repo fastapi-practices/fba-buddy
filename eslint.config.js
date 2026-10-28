@@ -8,6 +8,7 @@ import { defineConfig, globalIgnores } from "eslint/config"
 export default defineConfig([
   globalIgnores([
     "dist",
+    "apps/*/dist",
     "electron/dist",
     "release",
     "playwright-report",

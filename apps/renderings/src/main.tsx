@@ -17,7 +17,7 @@ import { useComposerStore } from "@/features/chat/composer-store"
 import { installLocalPreviewApi } from "./local-api"
 import { installLocalPreviewDesktop } from "./desktop-stub"
 import { RenderingPreview } from "./preview"
-import "@/index.css"
+import "./index.css"
 
 installLocalPreviewApi()
 // 预览页跑在浏览器里，补上桌面能力才能看到工作位置、分支与 Worktree 菜单

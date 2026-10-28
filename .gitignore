@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+apps/*/dist
 dist-ssr
 out
 electron/dist

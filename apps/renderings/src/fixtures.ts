@@ -756,7 +756,7 @@ const baseScenes: RenderingScene[] = [
             tool(
               "superseded-read",
               "read_file",
-              { path: "src/dev/conversation-renderings/fixtures.ts" },
+              { path: "apps/renderings/src/fixtures.ts" },
               "已读取场景定义"
             ),
           ],
@@ -1030,7 +1030,7 @@ const queueScene: RenderingScene = {
       toolCallId: "queue-diff",
       messageId: "queue-diff-result",
       content:
-        " src/components/ai-elements/transcript.tsx | 42 ++++\n src/features/chat/transcript-work-timing.ts | 18 ++\n src/dev/conversation-renderings/fixtures.ts | 31 +++",
+        " src/components/ai-elements/transcript.tsx | 42 ++++\n src/features/chat/transcript-work-timing.ts | 18 ++\n apps/renderings/src/fixtures.ts | 31 +++",
     },
     {
       type: "TEXT_MESSAGE_CONTENT",
@@ -1097,7 +1097,7 @@ const completeStreamEvents: Record<string, unknown>[] = [
     type: "TOOL_CALL_ARGS",
     toolCallId: "stream-edit",
     delta:
-      '{"path":"src/dev/conversation-renderings/fixtures.ts","old_string":"<StaticPreview />","new_string":"<Thread />"}',
+      '{"path":"apps/renderings/src/fixtures.ts","old_string":"<StaticPreview />","new_string":"<Thread />"}',
   },
   { type: "TOOL_CALL_END", toolCallId: "stream-edit" },
   {
@@ -1369,7 +1369,7 @@ const streamInterleavedEvents = [
     type: "TOOL_CALL_ARGS",
     toolCallId: "stream-interleaved-edit",
     delta:
-      '{"path":"src/dev/conversation-renderings/fixtures.ts","old_string":"<StaticPreview />","new_string":"<Thread />"}',
+      '{"path":"apps/renderings/src/fixtures.ts","old_string":"<StaticPreview />","new_string":"<Thread />"}',
   },
   { type: "TOOL_CALL_END", toolCallId: "stream-interleaved-edit" },
   {

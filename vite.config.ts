@@ -12,17 +12,6 @@ export default defineConfig(({ mode }) => {
   return {
     base: "./",
     plugins: [react(), tailwindcss()],
-    build: {
-      rolldownOptions: {
-        input: {
-          app: path.resolve(import.meta.dirname, "index.html"),
-          renderings: path.resolve(
-            import.meta.dirname,
-            "conversation-renderings.html"
-          ),
-        },
-      },
-    },
     resolve: {
       alias: {
         "@": path.resolve(import.meta.dirname, "./src"),

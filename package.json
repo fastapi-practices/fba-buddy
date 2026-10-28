@@ -11,17 +11,23 @@
   "scripts": {
     "dev": "node scripts/dev-desktop.mjs",
     "dev:web": "vite --open",
-    "dev:renderings": "vite --open /conversation-renderings.html",
+    "dev:renderings": "vite --config apps/renderings/vite.config.ts --open",
+    "dev:landing": "vite --config apps/landing/vite.config.ts --open",
     "build:electron": "node scripts/build-electron.mjs && node scripts/build-window-material.mjs",
     "build": "tsc --noEmit -p tsconfig.app.json && vite build && pnpm build:electron",
     "dist": "pnpm build && node scripts/pack.mjs --publish never",
     "release": "pnpm build && node scripts/pack.mjs --publish always",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.electron.json && tsc --noEmit -p tsconfig.smoke.json",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p apps/landing/tsconfig.json && tsc --noEmit -p apps/renderings/tsconfig.json && tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.electron.json && tsc --noEmit -p tsconfig.smoke.json",
     "test": "vitest run",
     "test:smoke": "playwright test --config playwright.smoke.config.ts",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:landing": "vite build --config apps/landing/vite.config.ts",
+    "build:renderings": "vite build --config apps/renderings/vite.config.ts",
+    "build:apps": "pnpm build:landing && pnpm build:renderings",
+    "preview:landing": "vite preview --config apps/landing/vite.config.ts",
+    "preview:renderings": "vite preview --config apps/renderings/vite.config.ts"
   },
   "dependencies": {
     "@ag-ui/core": "^0.0.59",
