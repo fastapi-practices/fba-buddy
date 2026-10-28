@@ -67,7 +67,6 @@
 3. `preview-data.ts`：模拟数据内容，模型、项目、MCP、快捷指令、技能、知识、产物与助手都取自这里
 4. `desktop-stub.ts`：桌面能力模拟，让工作位置、分支与 Worktree 菜单在浏览器里可点
 5. `composer-preview.tsx`：输入框的模拟页，复用产品的输入框、模式菜单与工具菜单
-6. `design/model-picker/`：模型选择器的方案探索页（`index.html` 正经方案、`playful.html` 有趣方案），纯静态 HTML，不参与产品构建
 
 ### 同步约束
 
