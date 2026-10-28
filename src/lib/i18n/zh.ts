@@ -1789,8 +1789,6 @@ export const ZH = {
   "workTiming.minutes": "{n} 分",
   "workTiming.hours": "{n} 小时",
   "models.architectureSynced": "已更新 {updated} 个模型",
-  "models.architectureSkipped": "{count} 个模型未同步",
-  "models.architectureSkippedReason": "{model}：{reason}",
   "models.noProviderModels": "此供应商还没有当前账号的模型",
   "models.modelNameOptional": "展示名称，留空时使用模型 ID",
   "models.inputModalitiesHint": "全部取消表示未知；选择任一模态时必须包含文本",

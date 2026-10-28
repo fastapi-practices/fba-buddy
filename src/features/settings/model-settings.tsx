@@ -25,7 +25,7 @@ import {
 import { SettingsPageHeader } from "@/features/settings/settings-card"
 import { useT } from "@/hooks/use-t"
 import { notifyError } from "@/lib/notify"
-import type { ModelArchitectureSyncResult, ProviderItem } from "@/lib/types"
+import type { ProviderItem } from "@/lib/types"
 
 export function ModelSettings() {
   const t = useT()
@@ -33,8 +33,6 @@ export function ModelSettings() {
   const [requestedProviderId, setRequestedProviderId] = useState<number>()
   const [modelsOpen, setModelsOpen] = useState(false)
   const [syncing, setSyncing] = useState(false)
-  const [syncResult, setSyncResult] =
-    useState<ModelArchitectureSyncResult | null>(null)
   const [providerEditor, setProviderEditor] = useState<{
     provider: ProviderItem | null
   } | null>(null)
@@ -70,10 +68,8 @@ export function ModelSettings() {
   async function syncArchitecture() {
     if (syncing) return
     setSyncing(true)
-    setSyncResult(null)
     try {
       const result = await syncMyModelArchitecture()
-      setSyncResult(result)
       await refresh()
       toast.add({
         title: t("models.architectureSynced", {
@@ -121,36 +117,6 @@ export function ModelSettings() {
       />
 
       <div className="flex flex-col gap-3">
-        {syncResult ? (
-          <Card size="sm">
-            <CardContent className="flex flex-col gap-2 p-5 text-sm">
-              <p className="font-medium">
-                {t("models.architectureSynced", {
-                  updated: syncResult.updated_count,
-                })}
-              </p>
-              {syncResult.skipped.length > 0 ? (
-                <>
-                  <p className="text-muted-foreground">
-                    {t("models.architectureSkipped", {
-                      count: syncResult.skipped.length,
-                    })}
-                  </p>
-                  <ul className="flex list-disc flex-col gap-1 pl-5 text-muted-foreground">
-                    {syncResult.skipped.map((item) => (
-                      <li key={item.id}>
-                        {t("models.architectureSkippedReason", {
-                          model: item.model_id,
-                          reason: item.reason,
-                        })}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </CardContent>
-          </Card>
-        ) : null}
         {error ? (
           <Card size="sm">
             <CardContent className="p-5 text-sm text-destructive">

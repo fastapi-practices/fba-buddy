@@ -1908,8 +1908,6 @@ export const EN = {
   "workTiming.minutes": "{n}m",
   "workTiming.hours": "{n}h",
   "models.architectureSynced": "Updated {updated} models",
-  "models.architectureSkipped": "{count} models were not synced",
-  "models.architectureSkippedReason": "{model}: {reason}",
   "models.noProviderModels": "No models are configured for this provider",
   "models.modelNameOptional": "Display name; falls back to the model ID",
   "models.inputModalitiesHint":
